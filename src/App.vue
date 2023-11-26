@@ -14,6 +14,8 @@ import IncomeExpenses from './components/IncomeExpenses.vue';
 import TransactionList from './components/TransactionList.vue'
 import AddTransaction from './components/AddTransaction.vue'
 import {ref,computed} from 'vue'
+import { useToast } from 'vue-toastification';
+const toast = useToast();
 const transactions = ref([
   { id: 1, text: 'Flower', amount: -19.90 },
   { id: 2, text: 'Salary', amount: 219.90 },
@@ -49,6 +51,8 @@ const handleTransactionSubmitted=(transactionData)=>{
   text:transactionData.text,
   amount:transactionData.amount
  })
+ toast.success("Transaction added")
+ alert("Transaction added")
 }
 </script>
 <style ></style>
